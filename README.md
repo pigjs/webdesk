@@ -22,7 +22,7 @@
 
 该应用程序将在http://localhost:3000上启动并运行
 
+[如何创建 github auth](https://docs.github.com/zh/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+
 ## 支持
 + 如果你喜欢 webdesk，可以在 GitHub 上 star 它，也欢迎向你的朋友推荐 webdesk 。
-
-

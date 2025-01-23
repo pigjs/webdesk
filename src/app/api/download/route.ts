@@ -1,10 +1,11 @@
 import { config } from "@/app/config";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(req: Request) {
+export const dynamic = 'force-dynamic';
+
+export async function GET(req: NextRequest) {
   try {
-    const { searchParams } = new URL(req.url);
-    const id = searchParams.get("id");
+    const id = req.nextUrl.searchParams.get('id');
     if (!id) {
       return NextResponse.json({ error: "ID cannot be empty" }, { status: 400 });
     }
