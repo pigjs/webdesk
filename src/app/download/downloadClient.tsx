@@ -4,6 +4,7 @@ import { Button, Divider, List, message, Modal, Popover, Space } from "antd";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { config } from "../config";
 
 interface IDownload {
     status: 'success' | 'failure' | 'queued';
@@ -91,7 +92,7 @@ export function DownloadClient() {
             <div className="flex items-center justify-center mt-8" >
                 {detail.status === 'success' && (
                     <Space>
-                        <Button type='primary' href={`/api/download?id=${detail.id}`} target='_blank' rel='noreferrer' >下载</Button>
+                        <Button type='primary' href={`https://github.com/${config.github.owner}/${config.github.repo}/actions/runs/${detail.id}`} target='_blank' rel='noreferrer' >下载</Button>
                         <Popover content={<Image width={238} height={324} src='/author.jpg' alt="作者" />}>
                             <Button>webdesk 交流群</Button>
                         </Popover>
