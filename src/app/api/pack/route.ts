@@ -18,6 +18,8 @@ interface IPack {
   orderId: string;
 }
 
+export const dynamic = 'force-dynamic';
+
 export async function POST(req: Request) {
   try {
     const { name, url, logo, os }: IPack = await req.json();
@@ -76,7 +78,7 @@ export async function GET(req: Request) {
         ).then((res) => res.json());
         const [artifact] = artifacts;
         if (artifact) {
-          return NextResponse.json({ status: "success", id: artifact.id }, { status: 200 });
+          return NextResponse.json({ status: "success", id: artifact.id,url: `https://github.com/${owner}/${repo}/actions/runs/${id}` }, { status: 200 });
         }
       }
       return NextResponse.json({ status: "failure" }, { status: 200 });
